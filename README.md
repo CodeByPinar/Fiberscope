@@ -4,7 +4,7 @@
 
 FiberScope is a next-generation developer tool designed to revolutionize how you debug, inspect, and modify React applications. Unlike traditional devtools, FiberScope allows you to traverse the React Fiber tree, modify props and state in real-time, and leverage AI to rewrite component styles and logic on the fly directly from your browser.
 
-![FiberScope Banner](public/vite.svg)
+![FiberScope Banner](public/banner_fiberscope.jpeg)
 
 ## ✨ Features
 
