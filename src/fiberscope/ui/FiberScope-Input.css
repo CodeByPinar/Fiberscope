@@ -1,0 +1,71 @@
+
+.fs-prop-input {
+    background: #1E1E24;
+    border: 1px solid #A56FFF;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    width: 100%;
+    outline: none;
+}
+
+.fs-prop-value.editable {
+    cursor: text;
+    border-bottom: 1px dashed rgba(255,255,255,0.2);
+}
+
+.fs-prop-value.editable:hover {
+    border-bottom-color: #A56FFF;
+    color: #fff;
+}
+
+/* Tree Navigation */
+.fs-tree-node.clickable {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.fs-tree-node.clickable:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
+/* Prop Filter */
+.fs-prop-filter {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--fs-border);
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 8px;
+    outline: none;
+}
+
+.fs-prop-filter:focus {
+    border-color: var(--fs-primary);
+}
+
+/* Close Button */
+.fs-close-btn {
+    background: none;
+    border: none;
+    color: var(--fs-text-dim);
+    cursor: pointer;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.fs-close-btn:hover {
+    background: rgba(255, 50, 50, 0.2);
+    color: #ff5555;
+}

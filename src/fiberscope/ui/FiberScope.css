@@ -1,0 +1,411 @@
+
+/* FiberScope UI Theme */
+@import './FiberScope-Input.css';
+@import './FiberScope-AI.css';
+@import './FiberScope-Modal.css';
+@import './FiberScope-Advanced.css';
+@import './FiberScope-Debug.css';
+
+:root {
+  --fs-primary: #A56FFF;
+  --fs-deep-violet: #6E3AFF;
+  --fs-bg: #121218;
+  --fs-text: #FFFFFF;
+  --fs-text-dim: #E3E8FF;
+  --fs-border: #2A2A35;
+  --fs-accent-blue: #48AFFF;
+  --fs-success: #00C853;
+}
+
+.fs-overlay {
+  position: fixed;
+  border: 2px solid var(--fs-primary);
+  background-color: rgba(165, 111, 255, 0.1);
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.1s ease-out;
+  border-radius: 4px;
+}
+
+.fs-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 340px;
+  background-color: var(--fs-bg);
+  color: var(--fs-text);
+  border-left: 1px solid var(--fs-border);
+  z-index: 9999;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+}
+
+.fs-panel-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--fs-border);
+  background: linear-gradient(90deg, rgba(165,111,255,0.1) 0%, rgba(18,18,24,0) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fs-title {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--fs-primary);
+  margin: 0;
+}
+
+.fs-subtitle {
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fs-close-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.fs-close-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.fs-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--fs-border);
+  background: #1A1A22;
+}
+
+.fs-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #888;
+  padding: 12px 0;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.fs-tab:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.02);
+}
+
+.fs-tab.active {
+  color: var(--fs-primary);
+  border-bottom-color: var(--fs-primary);
+}
+
+.fs-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.fs-section {
+  margin-bottom: 24px;
+}
+
+.fs-section-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #666;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.fs-badge {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.fs-badge-host {
+  background: #333;
+  color: #aaa;
+}
+
+.fs-badge-component {
+  background: rgba(165, 111, 255, 0.2);
+  color: var(--fs-primary);
+  border: 1px solid rgba(165, 111, 255, 0.3);
+}
+
+.fs-mini-source {
+  font-size: 11px;
+  color: #666;
+  margin-top: 4px;
+  font-family: monospace;
+}
+
+/* Props */
+.fs-prop-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 12px;
+}
+
+.fs-prop-key {
+  color: var(--fs-text-dim);
+  font-family: monospace;
+}
+
+.fs-prop-value-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fs-prop-value {
+  color: #48AFFF;
+  font-family: monospace;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fs-prop-value.string { color: #CE9178; }
+.fs-prop-value.number { color: #B5CEA8; }
+.fs-prop-value.boolean { color: #569CD6; }
+.fs-prop-value.function { color: #DCDCAA; font-style: italic; }
+.fs-prop-value.object { color: #9CDCFE; }
+
+.fs-prop-value.editable {
+  cursor: pointer;
+  border-bottom: 1px dashed rgba(255,255,255,0.2);
+}
+
+.fs-prop-value.editable:hover {
+  border-bottom-color: var(--fs-primary);
+}
+
+.fs-prop-input {
+  background: #000;
+  border: 1px solid var(--fs-primary);
+  color: #fff;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 2px 4px;
+  width: 120px;
+  border-radius: 2px;
+}
+
+.fs-color-preview {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.fs-color-input {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.fs-prop-edit-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Toggle Switch */
+.fs-toggle {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 16px;
+}
+
+.fs-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.fs-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  transition: .4s;
+  border-radius: 16px;
+}
+
+.fs-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .fs-toggle-slider {
+  background-color: var(--fs-primary);
+}
+
+input:checked + .fs-toggle-slider:before {
+  transform: translateX(12px);
+}
+
+/* Tree */
+.fs-tree-view {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.fs-tree-node {
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fs-tree-node.current {
+  background: rgba(165, 111, 255, 0.15);
+  color: var(--fs-primary);
+  font-weight: bold;
+}
+
+.fs-tree-node.child {
+  color: #888;
+  margin-left: 12px;
+}
+
+.fs-tree-node.clickable:hover {
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  cursor: pointer;
+}
+
+.fs-tree-icon {
+  font-size: 14px;
+}
+
+.fs-tree-line {
+  color: #444;
+}
+
+.fs-tree-badge {
+    font-size: 9px;
+    background: #333;
+    color: #aaa;
+    padding: 0 4px;
+    border-radius: 2px;
+    margin-left: auto;
+}
+
+/* Buttons */
+.fs-btn-primary, .fs-btn-secondary, .fs-btn-ai, .fs-btn-undo {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.fs-btn-primary {
+  background: var(--fs-primary);
+  color: #fff;
+}
+
+.fs-btn-primary:hover {
+  background: var(--fs-deep-violet);
+}
+
+.fs-btn-secondary {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.fs-btn-secondary:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.fs-btn-ai {
+  background: linear-gradient(135deg, #6E3AFF 0%, #A56FFF 100%);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(110, 58, 255, 0.3);
+}
+
+.fs-btn-ai:hover {
+  box-shadow: 0 4px 15px rgba(110, 58, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.fs-btn-undo {
+    background: none;
+    color: #888;
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+.fs-btn-undo:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+}
+
+.fs-prop-filter {
+    width: 100%;
+    background: #111;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.fs-prop-filter:focus {
+    outline: none;
+    border-color: var(--fs-primary);
+}
+
+.fs-empty-state {
+    padding: 20px;
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+    font-style: italic;
+    background: rgba(0,0,0,0.2);
+    border-radius: 6px;
+}
